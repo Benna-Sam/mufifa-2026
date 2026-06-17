@@ -11,6 +11,19 @@ if [ ! -d ".git" ]; then
   exit 1
 fi
 
+# Check that Python 3 is available
+if ! command -v python3 >/dev/null 2>&1; then
+  echo "⚠  python3 not found."
+  echo "   Install Python 3 to enable automatic profile validation on commit."
+  echo "   The hook will still be installed but validation will be skipped until Python 3 is available."
+fi
+
+# Warn if a hook already exists
+if [ -f "$HOOK_DST" ]; then
+  echo "⚠  A pre-commit hook already exists at $HOOK_DST."
+  echo "   Overwriting it with the μFIFA hook."
+fi
+
 cp "$HOOK_SRC" "$HOOK_DST"
 chmod +x "$HOOK_DST"
 

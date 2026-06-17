@@ -15,12 +15,18 @@ import os
 import re
 
 # ── Colour helpers (disabled in CI if NO_COLOR is set) ──────────────────────
-USE_COLOR = os.environ.get("NO_COLOR") is None and sys.stdout.isatty() or os.environ.get("GITHUB_ACTIONS") == "true"
+USE_COLOR = (os.environ.get("NO_COLOR") is None and sys.stdout.isatty()) or os.environ.get("GITHUB_ACTIONS") == "true"
 
 def red(s):    return f"\033[31m{s}\033[0m" if USE_COLOR else s
 def green(s):  return f"\033[32m{s}\033[0m" if USE_COLOR else s
 def yellow(s): return f"\033[33m{s}\033[0m" if USE_COLOR else s
 def bold(s):   return f"\033[1m{s}\033[0m"  if USE_COLOR else s
+
+# ── Required top-level sections (## headings) ──────────────────────────────
+REQUIRED_TOP_SECTIONS = [
+    "## FIFA World Cup Corner",
+    "## Portfolio Highlights",
+]
 
 # ── Required sections (must appear as #### headings) ────────────────────────
 REQUIRED_SECTIONS = [
@@ -64,7 +70,7 @@ def check_header(lines):
     if not header_line:
         return False, "Missing '### Squad Domain: ... | FIFA Nation: ...' line in the first 5 lines"
     
-    squad_domain_keywords = ["Coder", "Maker", "Designer", "Leader", "Strategist"]
+    squad_domain_keywords = ["Coder", "Maker", "Designer", "Strategist"]
     if not any(g in header_line for g in squad_domain_keywords):
         return False, f"Squad Domain line must include at least one of: {', '.join(squad_domain_keywords)}"
     
@@ -73,19 +79,37 @@ def check_header(lines):
 
 def check_about_me(content):
     """About Me blockquote must exist and be at least 200 characters"""
-    # Find the blockquote after ### About Me
-    about_match = re.search(r'### About Me\s*\n+>(.*?)(?=\n#|\Z)', content, re.DOTALL)
+    # Capture all consecutive > lines after ### About Me
+    about_match = re.search(r'### About Me\s*\n+((?:>.*\n?)+)', content)
     if not about_match:
         return False, "'### About Me' section with a blockquote (>) is missing"
     
-    quote_text = about_match.group(1).strip()
-    # Remove the > from subsequent lines
-    quote_text = re.sub(r'\n>', '\n', quote_text).strip()
+    # Strip leading > from each line and join
+    raw_block = about_match.group(1)
+    quote_text = re.sub(r'^>\s?', '', raw_block, flags=re.MULTILINE).strip()
     
     if len(quote_text) < 200:
         return False, f"About Me must be at least 200 characters - currently {len(quote_text)} characters"
     
     return True, f"About Me is {len(quote_text)} characters ✓"
+
+
+def check_top_sections(content):
+    """Top-level ## section headings (FIFA World Cup Corner, Portfolio Highlights) must be present"""
+    errors = []
+    for section in REQUIRED_TOP_SECTIONS:
+        # Match flexibly: allow optional emoji or extra characters between ## and the heading text
+        # e.g. "## ⚽ FIFA World Cup Corner" and "## FIFA World Cup Corner" both match
+        heading_text = re.escape(section.lstrip('## ').strip())
+        pattern = re.compile(
+            r'^##\s+.*?' + heading_text,
+            re.MULTILINE
+        )
+        if not pattern.search(content):
+            errors.append(f"Missing top-level section: {section}")
+    if errors:
+        return False, errors
+    return True, "Top-level sections present"
 
 
 def check_sections(content):
@@ -109,7 +133,8 @@ def check_sections_not_empty(content, lines):
         r'^\s*-\s*\.\.\.\s*$',                 # - ...
         r'^\s*-\s*N/A\s*$',                    # - N/A
         r'^\s*-\s*TBD\s*$',                    # - TBD
-        r'^\s*-\s*write about your self',       # copy-pasted from old template
+        r'^\s*-\s*write about your self',       # copy-pasted from old template (variant)
+        r'^\s*-\s*write about yourself',          # copy-pasted from old template
         r'^\s*>\s*Who are you',                 # un-edited About Me prompt
     ]
 
@@ -189,13 +214,14 @@ def validate(path):
     has_warnings = False
 
     checks = [
-        ("Filename",           lambda: check_filename(path)),
-        ("Header",             lambda: check_header(lines)),
-        ("About Me length",    lambda: check_about_me(content)),
-        ("Required sections",  lambda: check_sections(content)),
-        ("Section content",    lambda: check_sections_not_empty(content, lines)),
-        ("Profile Card",       lambda: check_profile_card(content)),
-        ("MUID consistency",   lambda: check_mulearn_id_consistency(path, content)),
+        ("Filename",             lambda: check_filename(path)),
+        ("Header",               lambda: check_header(lines)),
+        ("About Me length",      lambda: check_about_me(content)),
+        ("Top-level sections",   lambda: check_top_sections(content)),
+        ("Required sections",    lambda: check_sections(content)),
+        ("Section content",      lambda: check_sections_not_empty(content, lines)),
+        ("Profile Card",         lambda: check_profile_card(content)),
+        ("MUID consistency",     lambda: check_mulearn_id_consistency(path, content)),
     ]
 
     for label, fn in checks:

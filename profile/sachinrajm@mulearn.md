@@ -9,7 +9,6 @@
 
 ## ⚽ FIFA World Cup Corner
 
-*This is your fan card. Tell us who you ride with, what you know about the beautiful game, and what you expect from this year's tournament.*
 
 #### My Nation & Why:
 
@@ -48,7 +47,6 @@
 
 ## 🏅 Portfolio Highlights
 
-> 💡 **No portfolio yet? That's fine.** μFIFA is where you build one. Fill in what you have, even if it's just an idea, a plan, or something you're currently learning. Every legend started at Recruit tier.
 
 #### History of Open Source and Collaborative Contributions:
 

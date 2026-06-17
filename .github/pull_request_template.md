@@ -26,7 +26,7 @@ Tick what you've filled in. If a section is empty because you're just starting o
 - [ ] Domain Profiles
 - [ ] Tools, Workflows & Automations
 - [ ] Public Portfolio & Recognition
-- [ ] Education and Certifications (with GitHub and LinkedIn links)
+- [ ] Education and Proof of Work (with GitHub and LinkedIn links)
 - [ ] History of Leadership
 - [ ] Networking
 - [ ] Career Plan

@@ -15,6 +15,10 @@ VALIDATOR="scripts/validate_profile.py"
 PROFILE_DIR="profile"
 FAILED=0
 
+# MUIDs to skip validation for (maintainer/example profiles).
+# Update this list if the example profile MUID changes.
+SKIP_MUIDS="example@mulearn|sachinrajm@mulearn"
+
 # Find all staged .md files inside the profile/ directory
 STAGED_PROFILES=$(git diff --cached --name-only --diff-filter=ACM | grep -i "^${PROFILE_DIR}/.*\.md$")
 
@@ -35,8 +39,8 @@ if ! command -v python3 >/dev/null 2>&1; then
 fi
 
 for FILE in $STAGED_PROFILES; do
-  # Skip the example profile
-  if echo "$FILE" | grep -qi -E "example@mulearn|sachinrajm@mulearn"; then
+  # Skip maintainer / example profiles (see SKIP_MUIDS at top of file)
+  if echo "$FILE" | grep -qi -E "$SKIP_MUIDS"; then
     continue
   fi
 

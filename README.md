@@ -16,6 +16,21 @@ Our mission: surface Kerala's most versatile innovators across Maker, Coder, Des
 
 ---
 
+## Squad Domains
+
+Every player belongs to one or more Squad Domains. Your domain reflects the kind of work you do.
+
+| Domain | Who it's for |
+|--------|--------------|
+| **Coder** | Developers, engineers, competitive programmers, open-source contributors |
+| **Designer** | UI/UX designers, visual artists, motion designers, brand creators |
+| **Maker** | Hardware hackers, robotics builders, IoT engineers, fabricators |
+| **Strategist** | Product thinkers, community builders, program managers, marketers |
+
+You can select multiple domains if your work spans them. Your Squad Domain appears on your profile and determines your leaderboard category.
+
+---
+
 ## How to Participate
 
 ### Step 1 — Join the μLearn Community
@@ -75,7 +90,7 @@ Submit a PR to `main`. Your live profile card will render immediately.
 Your profile page will be live at:
 
 ```
-https://gtech-mulearn.github.io/uFIFA-World-Cup-2026/profile/[your-muid]
+https://gtech-mulearn.github.io/mufifa-2026/profile/[your-muid]
 ```
 
 ### Step 5 — Join the Discord
@@ -93,6 +108,12 @@ Join the [μFIFA Discord server](https://discord.com/channels/771670169691881483
 
 ---
 
+## Leaderboard
+
+Nation standings, Squad Domain rankings, and individual μPoint scores are tracked in the [LEADERBOARD.md](./docs/LEADERBOARD.md). Standings update every Friday.
+
+---
+
 ## Profile Validation
 
 Every profile is automatically validated — both locally before you commit, and on GitHub when you open a PR.
@@ -104,7 +125,8 @@ Every profile is automatically validated — both locally before you commit, and
 | Filename | Must follow `yourname@mulearn.md` format |
 | Header | Must include Squad Domain(s) and FIFA Nation |
 | About Me | Minimum 200 characters |
-| Required sections | All sections must be present |
+| Top-level sections | `## FIFA World Cup Corner` and `## Portfolio Highlights` must be present |
+| Required sections | All `####` sub-sections must be present |
 | Section content | Sections must not contain only placeholder text |
 | Profile Card | Embed must use your actual MUID |
 | MUID consistency | Filename and embed MUID must match |

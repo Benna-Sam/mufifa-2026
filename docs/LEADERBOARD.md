@@ -2,6 +2,9 @@
 
 Standings are updated every Friday. Nation score is normalised — every squad member matters equally, not just the top scorers.
 
+> **Last updated:** *TBD — standings will appear after Week 1.*
+
+
 > **Nation Score = Median(individual μPoints of all registered members) x (Active Members / Registered Members) x 100**
 
 ---
@@ -40,13 +43,17 @@ Standings are updated every Friday. Nation score is normalised — every squad m
 
 ---
 
-## El Clásico Week - Week 5 Awards
+## Special Week Awards
 
-*All Challenge points are doubled. Player of the Match bonuses awarded per Squad Domain.*
+*Announced per match week. In designated Special Weeks, all Challenge points are doubled and Player of the Match bonuses are awarded per Squad Domain.*
 
 | Award | Winner | Bonus |
 |-------|--------|-------|
-| Maker - Player of the Match | - | +500 μP |
-| Coder - Player of the Match | - | +500 μP |
-| Designer - Player of the Match | - | +500 μP |
-| Strategist - Player of the Match | - | +500 μP |
+| Maker — Player of the Match | — | +500 μP |
+| Coder — Player of the Match | — | +500 μP |
+| Designer — Player of the Match | — | +500 μP |
+| Strategist — Player of the Match | — | +500 μP |
+
+---
+
+[Back to README](../README.md)
