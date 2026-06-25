@@ -1,8 +1,8 @@
-Benna Susan Sam (Aspiring AI Engineer)
+# Benna Susan Sam (Aspiring AI Engineer)
 
-Squad Domain: Designer | FIFA Nation: Portugal
+**Squad Domain:** Designer | **FIFA Nation:** Portugal
 
-About Me
+## About Me
 
 I am a first year Computer Science Engineering student specializing in Artificial Intelligence at Providence College of Engineering, Chengannur. I am passionate about technology, creativity, and design. My interests mainly lie in Data Science, Artificial Intelligence and exploring ways to combine technology with creativity. I enjoy working on practical projects that allow me to apply technical concepts to real-world problems.
 
