@@ -1,12 +1,12 @@
-# Benna Susan Sam (Designer | Student & Creative Explorer)
+Benna Susan Sam (Aspiring AI Engineer)
 
-**Squad Domain:** Designer | **FIFA Nation:** Portugal 🇵🇹
+Squad Domain: Designer | FIFA Nation: Portugal
 
-## About Me
+About Me
 
-I'm Benna Susan Sam, a Computer Science student specializing in Artificial Intelligence with a strong interest in creativity, design, and technology. Alongside my academics, I enjoy sketching, creating digital content, and exploring ways to combine technology with creativity. I believe good design is not just about aesthetics but also about creating meaningful experiences for people.
+I am a first year Computer Science Engineering student specializing in Artificial Intelligence at Providence College of Engineering, Chengannur. I am passionate about technology, creativity, and design. My interests mainly lie in Data Science, Artificial Intelligence and exploring ways to combine technology with creativity. I enjoy working on practical projects that allow me to apply technical concepts to real-world problems.
 
-I joined μFIFA to learn, collaborate, and challenge myself by building publicly. As someone who is still exploring different domains, I'm excited to meet like-minded learners, contribute to community initiatives, and grow both technically and creatively throughout the tournament.
+Apart from academics, I actively participate in μLearn initiatives to improve my technical and professional skills. I joined μFIFA to learn, collaborate, and challenge myself by building publicly. As someone who is still exploring different domains, I'm excited to meet like-minded learners, contribute to community initiatives, and grow both technically and creatively throughout the tournament.
 
 ---
 
